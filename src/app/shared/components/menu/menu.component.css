@@ -1,0 +1,18 @@
+.bg-menu{
+  background-color: #8fa382;
+  padding: 20px;
+}
+ 
+a{
+  cursor: pointer;
+  color: #818963;
+  text-decoration: none;
+  font-weight: 600;
+  list-style:none;
+  font-size: 14pt;
+} 
+
+/* li:hover a{
+  background: #ced4b5;
+} */
+

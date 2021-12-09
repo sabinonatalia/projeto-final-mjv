@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SobreComponent } from './pages/sobre/sobre.component';
 import { FormsModule } from '@angular/forms';
-import { ContatoComponent } from './pages/contato/contato.component';
 import { PaginaProdutosComponent } from './pages/pagina-produtos/pagina-produtos.component';
+import { ProdutosCardComponent } from './components/produtos/produtos-card/produtos-card.component';
+import { ProdutosListComponent } from './components/produtos/produtos-list/produtos-list.component';
+import { ProdutoDetalheComponent } from './pages/produto-detalhe/produto-detalhe.component';
 
 
 
@@ -12,8 +14,10 @@ import { PaginaProdutosComponent } from './pages/pagina-produtos/pagina-produtos
 @NgModule({
   declarations: [
     SobreComponent,
-    ContatoComponent,
-    PaginaProdutosComponent
+    PaginaProdutosComponent,
+    ProdutosCardComponent,
+    ProdutosListComponent,
+    ProdutoDetalheComponent
     
   ],
   imports: [

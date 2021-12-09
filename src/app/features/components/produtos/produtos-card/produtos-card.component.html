@@ -1,10 +1,60 @@
-<div class="div">
-  <div class="card" style="width: 18rem;">
-    <img  class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="card mt-3 mb-3" *ngIf="produtos && card" style="width: 18rem;">
+      <img class="card-img-top img-fluid" src="{{produtos.img}}" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{produtos.nome}}</h5>
+        <p class="card-text">{{produtos.preco | currency: 'BRL'}}</p>
+        <p class="card-text">Categoria: {{produtos.categoria}}</p>
+        <span>Produto disponível em: {{produtos.dataDisponivel | date}}</span>
+        <br><br>
+        <a [routerLink]="['/produto-detalhe', produtos.id]" class="btn btn-verde">Ver produto</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ver detalhe -->
+<div class="container mt-5 ">
+ 
+  <div class="row d-flex justify-content-center mt-3" *ngIf="produtos && !card">
+    <div class="col-6 mb-5">
+      <img class="img-fluid" src="{{produtos.img}}" alt="">
+    </div>
+    <div class="col-6 mb-5">
+      <h2 class="text-center ">{{produtos.nome}}</h2>
+      <h3 class="text-center mt-3">{{produtos.preco | currency: 'BRL'}}</h3>
+      <p class="text-center mt-3">Categoria: {{produtos.categoria}}</p>
+      <p class="text-center mt-3">Produto disponível em: {{produtos.dataDisponivel | date}}</p>
+      <br>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-verde" type="button" data-bs-toggle="modal" data-bs-target="#modalCompra">Comprar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalCompra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Faça seu pedido</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Para fazer seu pedido, envie por whatsapp ou email as seguintes informações: </p>
+        <p>Nome;</p>
+        <p>Telefone ou email;</p>
+        <p>Produto e quantidade;</p>
+        <p>Contato para envio do pedido:<br> <i class="fa fa-whatsapp" aria-hidden="true"></i> (11) 99999-9999 <br> <i class="fa fa-envelope" aria-hidden="true"></i> quintandayara@email.com</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
     </div>
   </div>
 </div>

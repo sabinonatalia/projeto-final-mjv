@@ -4,5 +4,6 @@ export interface Produtos{
   preco: string;
   img: string;
   categoria: string;
+  dataDisponivel: Date | string;
 
 }

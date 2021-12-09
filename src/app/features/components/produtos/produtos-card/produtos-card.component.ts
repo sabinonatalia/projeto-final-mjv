@@ -11,31 +11,18 @@ import { ProdutosService } from 'src/app/features/service/produtos/produtos.serv
 export class ProdutosCardComponent implements OnInit {
 
 
-  produtos: Array<Produtos> = []
-  filteredProdutos: Array<Produtos> = [];
+  @Input()
+  produtos?: Produtos;
 
-  constructor(private produtosService: ProdutosService,
-  private router: Router) { }
+  @Input()
+  card: boolean = true;
+  
+  constructor() { }
 
   ngOnInit(): void {
-
-    this.produtos = this.produtosService.getProdutos()
-    this.filteredProdutos = this.produtos
-
   }
 
-  getProdutosByNome(event: any) {
-    const value = event.target.value;
 
-    this.filteredProdutos = this.produtos.filter(
-        (product) => product.nome.toUpperCase().search(value.toUpperCase()) > -1);
-    if(value.length === 0) {
-        this.filteredProdutos = this.produtos;
-    }
-}
 
-transformPrice(preco: number) {
-    return `R$${preco},00`;
-}
 
 }

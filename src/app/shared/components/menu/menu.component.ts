@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/features/models/user.model';
+import { Produtos } from 'src/app/features/models/produtos.model';
+
+import { ProdutosService } from 'src/app/features/service/produtos/produtos.service';
 
 
 @Component({
@@ -10,25 +12,13 @@ import { User } from 'src/app/features/models/user.model';
 })
 export class MenuComponent implements OnInit {
 
-
-  user?: User
   constructor(
     private router: Router,
-  
+    
   ) { }
 
   ngOnInit(): void {
   window.scroll(0,0)
-  const userStorage = sessionStorage.getItem('user')
-  if(userStorage){
-    this.user = JSON.parse(userStorage)
-  }
-  }
-
-
-  sair(){
-    sessionStorage.clear()
-    this.router.navigateByUrl('/')
   }
 
 }
